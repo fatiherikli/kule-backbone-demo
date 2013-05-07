@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Issue Tracker</title>
+    <link rel="stylesheet" href="screen.css">
+</head>
+<body>
+<form id="new-issue">
+    <h3>New Issue</h3>
+    <p>
+        <label>Title</label>
+        <input type="text" name="title" id="title">
+    </p>
+    <p>
+        <label>Description</label>
+        <textarea name="description" id="description" cols="50" rows="4"></textarea>
+    </p>
+    <p>
+        <input type="submit" value="Send">
+    </p>
+</form>
+<article>
+    <ul></ul>
+</article>
+<script type="text/template" id="issue_template">
+    <h3><%= title %></h3>
+    <p><%= description %></p>
+    <div>
+        <a href='#' class='remove'>remove</a>
+        <% if (is_completed) { %>
+        <a href='#' class='undo'>undo</a>
+        <% } else { %>
+        <a href='#' class='complete'>complete</a>
+        <% } %>
+    </div>
+</script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script src="//underscorejs.org/underscore-min.js"></script>
+<script src="//backbonejs.org/backbone-min.js"></script>
+<script type="text/javascript" src="app.js"></script>
+<script type="text/javascript">
+    $(function () {
+        new IssueTrackerView().render();
+    });
+</script>
+</body>
+</html>
