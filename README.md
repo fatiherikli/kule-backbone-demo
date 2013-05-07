@@ -1,0 +1,1 @@
+Webmagazin.co için demo uygulama.
